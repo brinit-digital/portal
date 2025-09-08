@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Connect Footer (MORF style)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --accent: #7efc63;
+            /* bright green */
+            --accent-dark: #5ad24b;
+            --bg1: #084654;
+            /* user provided */
+            --bg2: #001821;
+            /* user provided */
+            --text: rgba(255, 255, 255, 0.92);
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            
+        }
+
+        /* Outer footer area */
+        .footer-wrap {
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 56px 6vw;
+            background: linear-gradient(180deg, var(--bg2), var(--bg1), var(--bg2));
+            color: var(--text);
+            position: relative;
+            overflow: hidden;
+            font-family: Montserrat, system-ui, -apple-system, "Segoe UI", Roboto, 'Helvetica Neue', Arial
+
+        }
+
+        /* Big faded background word */
+        .bg-word {
+            position: absolute;
+            inset: 0 0 0 0;
+            pointer-events: none;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            font-weight: 800;
+            font-size: clamp(120px, 20vw, 340px);
+            color: rgba(0, 0, 0, 0.08);
+            letter-spacing: 10px;
+            transform: translateY(-10%);
+            mix-blend-mode: multiply;
+            user-select: none;
+        }
+
+        /* Left column */
+        .left {
+            width: min(48%, 720px);
+            z-index: 2;
+            display: flex;
+            gap: 28px;
+            align-items: flex-start;
+            margin-top: 5rem;
+        }
+
+        .brand-dot {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #aefd8b, var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+        }
+
+        .brand-dot svg {
+            width: 20px;
+            height: 20px;
+            opacity: 0.95
+        }
+
+        .left h2 {
+            font-weight: 600;
+            margin: 0;
+            color: var(--text);
+            font-size: 1.5rem;
+            line-height: 1.05;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Right column */
+        .right {
+            width: min(44%, 520px);
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 18px;
+            margin-top: 5rem;
+        }
+
+        .links {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+            font-size: 13px;
+            opacity: 0.95
+        }
+
+        .links a {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none
+        }
+
+        .socials {
+            display: flex;
+            gap: 30px;
+            align-items: center
+        }
+
+        .socials a {
+            opacity: 0.92;
+            color: white;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center
+        }
+         .socials a:hover {
+            color: var(--accent);
+         }
+
+        /* Email form */
+        .email-wrap {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-top: 14px;
+            width: 100%;
+            max-width: 420px
+        }
+
+        .email-input {
+            flex: 1;
+            padding: 10px 14px;
+            border-radius: 28px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            color: rgba(255, 255, 255, 0.9);
+            outline: none;
+            font-size: 15px;
+            backdrop-filter: blur(6px);
+        }
+
+        .submit-btn {
+            border-radius: 28px;
+            padding: 7px 14px;
+            border: 0;
+            background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+            color: #00210b;
+            font-weight: 700;
+            font-size: .8rem;
+            cursor: pointer;
+            box-shadow: 0 6px 24px rgba(46, 255, 110, 0.07);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px
+        }
+
+        .submit-btn:active {
+            transform: translateY(1px)
+        }
+
+        /* Footer tiny text */
+        .copyright {
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.271);
+            z-index: 2
+        }
+
+        .footer {
+            position: relative;
+            background: linear-gradient(#084654, #001821);
+            color: #fff;
+            padding: 80px 40px 40px;
+            text-align: center;
+            overflow: hidden;
+            /* prevents white space below */
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(180deg, #9be86a, #55ff99);
+            opacity: 0.9;
+            will-change: transform, opacity;
+            animation: rise var(--dur) linear infinite;
+            /* Use custom start/end positions for vertical travel */
+            top: var(--start-top, 0%);
+        }
+
+        @keyframes rise {
+            0% {
+                top: var(--start-top, 0%);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.4;
+            }
+
+            80% {
+                opacity: 0.4;
+            }
+
+            100% {
+                top: var(--end-top, 100%);
+                opacity: 0;
+            }
+        }
+
+
+
+        /* Responsive tweaks */
+        @media (max-width:900px) {
+            .footer-wrap {
+                padding: 40px 6vw
+            }
+
+            .left {
+                width: 60%
+            }
+
+            .right {
+                width: 40%;
+                align-items: flex-end
+            }
+
+            .bg-word {
+                font-size: clamp(80px, 28vw, 260px);
+            }
+        }
+
+        @media (max-width:700px) {
+            .footer-wrap {
+                padding: 28px 4vw;
+                min-height: 520px;
+                align-items: flex-start
+            }
+
+            .left {
+                width: 100%;
+            }
+
+            .right {
+                width: 100%;
+                align-items: flex-start;
+                margin-top: 30px
+            }
+
+            .links {
+                justify-content: flex-start
+            }
+
+            .bg-word {
+                font-size: clamp(80px, 40vw, 180px);
+                transform: translateY(-5%);
+                opacity: 0.9
+            }
+
+            .copyright {
+                display: none
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <footer class="footer-wrap">
+        <div class="bg-word">CONNECT</div>
+
+        <div class="left">
+            <div class="brand-dot" aria-hidden>
+                <!-- simple star svg inside dot -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                    <path d="M12 3l1.95 4.5L18.9 9l-3.45 2.55L15.9 16 12 13.5 8.1 16l.45-4.45L5.1 9l4.95-1.5L12 3z"
+                        fill="#003300" opacity="0.95" />
+                </svg>
+            </div>
+            <div>
+                <h2>Simplify lead management and empower your sales team to convert faster.</h2>
+            </div>
+        </div>
+        <div class="particles" aria-hidden></div>
+        <div class="right">
+            <nav class="links" aria-label="footer links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Term &amp; Condition</a>
+                <a href="#">About Us</a>
+                <a href="#">FAQ</a>
+            </nav>
+
+         <div class="socials" aria-hidden="true">
+    <a href="#" title="facebook" aria-label="facebook">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+    <a href="#" title="instagram" aria-label="instagram">
+        <i class="fab fa-instagram"></i>
+    </a>
+    <a href="#" title="whatsapp" aria-label="whatsapp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="#" title="linkedin" aria-label="linkedin">
+        <i class="fab fa-linkedin-in"></i>
+    </a>
+</div>
+
+
+            <form class="email-wrap" onsubmit="return false;">
+                <input class="email-input" placeholder="Email Me" aria-label="email" />
+                <button class="submit-btn">Submit →</button>
+            </form>
+        </div>
+
+
+
+        <div class="copyright">©2025 | All rights reserved</div>
+    </footer>
+
+   
+</body>
+
+</html>

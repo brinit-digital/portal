@@ -1,0 +1,189 @@
+body{
+  background-image: url(../images/sl_032421_41660_03.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.brinit-contact-section {
+  padding: 60px 0;
+  /* background: #f8f8f8; */
+  /* background-image: url(../images/sl_032421_41660_03.jpg);
+  background-repeat: no-repeat;
+  background-size: cover; */
+}
+
+.brinit-contact-container {
+  max-width: 1200px;
+  width: 95%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  border-radius: 12px;
+  overflow: hidden;
+  backdrop-filter: blur(2px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  background: #ffffff18;
+}
+
+/* Left Form */
+.brinit-contact-form {
+  padding: 40px;
+}
+
+.brinit-contact-form h2 {
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #07556bb2, #033e4dde, #012A36);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  font-size: 2.3rem;
+}
+
+.brinit-contact-form input,
+.brinit-contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.brinit-contact-form input:focus,
+.brinit-contact-form textarea:focus {
+  border: 2px solid teal;
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 128, 128, 0.6);
+}
+
+.brinit-contact-form textarea {
+  resize: none;
+  height: 120px;
+}
+
+.brinit-contact-form button {
+  background: linear-gradient(135deg, #07556b9d, #033e4dde, #012A36);
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  transition: 0.3s;
+}
+.brinit-contact-form button:hover {
+  background: #004d4d;
+}
+
+/* Right Info Boxes */
+.brinit-contact-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  gap: 15px;
+}
+
+.brinit-info-box {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 12px;
+  padding: 15px 18px;
+  min-height: 100px;
+  backdrop-filter: blur(4px);
+  transition: 0.3s;
+  border: 1px solid transparent;
+  border-image: linear-gradient(to left, teal 1%, transparent 35%) 1 round;
+}
+
+.brinit-info-box:hover {
+  background: #07556b18;
+  transform: translateY(-4px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.brinit-info-box h3 {
+  margin: 0 0 6px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #033E4D;
+}
+.brinit-info-box p {
+  margin: 2px 0;
+  line-height: 1.4;
+  color: #07556B;
+}
+
+.brinit-icon {
+  font-size: 40px;
+  color: #07556bc7;
+}
+
+/* Social icons */
+.brinit-social-card {
+  border: none;
+  display: flex;
+  justify-content: center;
+}
+.brinit-social-card ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.brinit-svg {
+  transition: all 0.3s;
+  padding: 1rem;
+  height: 60px;
+  width: 60px;
+  border-radius: 30%;
+  color: #097897;
+  fill: currentColor;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.3),
+              inset 0 0 5px rgba(255, 255, 255, 0.5),
+              0 5px 5px rgba(0, 0, 0, 0.16);
+}
+.brinit-social-text {
+  opacity: 0;
+  font-weight: bold;
+  font-size: .9rem;
+  padding: 5px;
+  transition: all 0.3s;
+  color: #097897;
+  background-color: rgba(255, 255, 255, 0.3);
+  position: absolute;
+  z-index: 99;
+}
+.brinit-iso {
+  position: relative;
+  cursor: pointer;
+}
+.brinit-iso:hover .brinit-svg {
+  transform: translate(5px, -5px);
+}
+.brinit-iso:hover .brinit-social-text {
+  opacity: 1;
+  transform: translate(25px, -2px) skew(-5deg);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .brinit-contact-container {
+    grid-template-columns: 1fr;
+  }
+  .brinit-contact-info {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .brinit-info-box {
+    flex: 1 1 45%;
+    min-width: 250px;
+  }
+}
